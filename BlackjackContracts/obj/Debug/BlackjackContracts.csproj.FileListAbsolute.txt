@@ -1,0 +1,5 @@
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\BlackjackContracts\bin\BlackjackContracts.dll
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\BlackjackContracts\bin\BlackjackContracts.pdb
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\BlackjackContracts\obj\Debug\ResolveAssemblyReference.cache
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\BlackjackContracts\obj\Debug\BlackjackContracts.dll
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\BlackjackContracts\obj\Debug\BlackjackContracts.pdb

@@ -1,0 +1,70 @@
+﻿@model Blackjack.Models.Hit
+
+@{
+    ViewBag.Title = "Blackjack";
+}
+
+<script>
+    $(document).ready(function () {
+        $("#hit").click(function () {
+            $("#ishit").val("true");
+        });
+
+        $("#stand").click(function () {
+            $("#ishit").val("false");
+        });
+    });
+</script>
+
+<h2>Dealer</h2>
+
+<div class="playingCards">
+    <ul class="table">
+        <li>
+            <div class="card back">*</div>
+        </li>
+        <li>
+            <div class="card rank-@Model.DealerCard.FaceJSString.ToLower() @Model.DealerCard.SuitJSString">
+                <span class="rank">@Model.DealerCard.FaceJSString</span>
+                <span class="suit">&@Model.DealerCard.SuitJSString;</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<br /><br /><br /><br /><br />
+Valores posibles:
+@foreach (var v in Model.DealerValues)
+{
+    @v<br />
+}
+
+<h2>You</h2>
+
+<div class="playingCards">
+    <ul class="table">
+@foreach (var card in Model.YourCards)
+{
+        <li>
+            <div class="card rank-@card.FaceJSString.ToLower() @card.SuitJSString">
+                <span class="rank">@card.FaceJSString</span>
+                <span class="suit">&@card.SuitJSString;</span>
+            </div>
+        </li>
+}
+    </ul>
+</div>
+
+<br /><br /><br /><br /><br /><br />
+Valores posibles:
+@foreach (var v in Model.YourValues)
+{
+    @v<br />
+}
+
+@using (Html.BeginForm("Hit", "Home", FormMethod.Post))
+{
+    <input type="hidden" name="IsHit" id="ishit" style="display: none;" />
+    <button type="submit" id="hit">Hit</button>
+    <button type="submit" id="stand">Stand</button>
+}

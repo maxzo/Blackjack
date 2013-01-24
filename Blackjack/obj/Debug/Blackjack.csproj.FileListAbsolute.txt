@@ -1,0 +1,7 @@
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\obj\Debug\ResolveAssemblyReference.cache
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\bin\Blackjack.dll
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\bin\Blackjack.pdb
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\bin\EntityFramework.dll
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\bin\EntityFramework.xml
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.dll
+c:\users\maxi\documents\visual studio 2010\Projects\Blackjack\Blackjack\obj\Debug\Blackjack.pdb

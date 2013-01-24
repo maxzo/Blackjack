@@ -1,0 +1,69 @@
+﻿@model Blackjack.Models.FirstDeal
+
+@{
+    ViewBag.Title = "Blackjack";
+}
+
+<script>
+    $(document).ready(function() {
+        $("#hit").click(function() {
+            $("#ishit").val("true");
+        });
+
+        $("#stand").click(function() {
+            $("#ishit").val("false");
+        });
+    });
+</script>
+
+<h2>Dealer</h2>
+
+<div class="playingCards">
+    <ul class="table">
+        <li>
+            <div class="card back">*</div>
+        </li>
+        <li>
+            <div class="card rank-@Model.DealerCard.FaceJSString.ToLower() @Model.DealerCard.SuitJSString">
+                <span class="rank">@Model.DealerCard.FaceJSString</span>
+                <span class="suit">&@Model.DealerCard.SuitJSString;</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<br /><br /><br /><br /><br />
+
+<h2>You</h2>
+
+<div class="playingCards">
+    <ul class="table">
+        <li>
+            <div class="card rank-@Model.YourCard1.FaceJSString.ToLower() @Model.YourCard1.SuitJSString">
+                <span class="rank">@Model.YourCard1.FaceJSString</span>
+                <span class="suit">&@Model.YourCard1.SuitJSString;</span>
+            </div>
+        </li>
+        <li>
+            <div class="card rank-@Model.YourCard2.FaceJSString.ToLower() @Model.YourCard2.SuitJSString">
+                <span class="rank">@Model.YourCard2.FaceJSString</span>
+                <span class="suit">&@Model.YourCard2.SuitJSString;</span>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<br /><br /><br /><br /><br /><br />
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <!--<input type="hidden" name="DealerCardFace" value="@Model.DealerCard.Face" />
+    <input type="hidden" name="DealerCardSuit" value="@Model.DealerCard.Suit" />
+    <input type="hidden" name="YourCard1Face" value="@Model.YourCard1.Face" />
+    <input type="hidden" name="YourCard1Suit" value="@Model.YourCard1.Suit" />
+    <input type="hidden" name="YourCard2Face" value="@Model.YourCard2.Face" />
+    <input type="hidden" name="YourCard2Suit" value="@Model.YourCard2.Suit" />-->
+    <input type="hidden" name="IsHit" id="ishit" style="display: none;" />
+    <button type="submit" id="hit">Hit</button>
+    <button type="submit" id="stand">Stand</button>
+}

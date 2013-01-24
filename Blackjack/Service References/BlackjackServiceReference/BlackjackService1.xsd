@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BlackjackContracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BlackjackContracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Card" nillable="true" type="tns:Card" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCard" nillable="true" type="tns:ArrayOfCard" />
+  <xs:complexType name="Card">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Face" type="tns:Card.FaceType" />
+      <xs:element minOccurs="0" name="FaceJSString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Suit" type="tns:Card.SuitType" />
+      <xs:element minOccurs="0" name="SuitJSString" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Card" nillable="true" type="tns:Card" />
+  <xs:simpleType name="Card.FaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Ace" />
+      <xs:enumeration value="Two" />
+      <xs:enumeration value="Three" />
+      <xs:enumeration value="Four" />
+      <xs:enumeration value="Five" />
+      <xs:enumeration value="Six" />
+      <xs:enumeration value="Seven" />
+      <xs:enumeration value="Eight" />
+      <xs:enumeration value="Nine" />
+      <xs:enumeration value="Ten" />
+      <xs:enumeration value="Jack" />
+      <xs:enumeration value="Queen" />
+      <xs:enumeration value="King" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Card.FaceType" nillable="true" type="tns:Card.FaceType" />
+  <xs:simpleType name="Card.SuitType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Club" />
+      <xs:enumeration value="Diamond" />
+      <xs:enumeration value="Heart" />
+      <xs:enumeration value="Spade" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Card.SuitType" nillable="true" type="tns:Card.SuitType" />
+</xs:schema>

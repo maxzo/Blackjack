@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="27e1376e-d368-4ead-8382-03941d98c4f6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2093/BlackjackService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BlackjackService.disco" MetadataType="Disco" ID="77892fae-a253-4336-8107-99806b50eaea" SourceId="1" SourceUrl="http://localhost:2093/BlackjackService.svc?disco" />
+    <MetadataFile FileName="BlackjackService.xsd" MetadataType="Schema" ID="49eb5123-9bd4-4eff-a39d-4a13f4e459e8" SourceId="1" SourceUrl="http://localhost:2093/BlackjackService.svc?xsd=xsd0" />
+    <MetadataFile FileName="BlackjackService1.xsd" MetadataType="Schema" ID="389c1a08-7738-41cf-9a37-87a59cd0ee03" SourceId="1" SourceUrl="http://localhost:2093/BlackjackService.svc?xsd=xsd1" />
+    <MetadataFile FileName="BlackjackService2.xsd" MetadataType="Schema" ID="95d5fe62-e9c0-4171-bb4a-3f2c247361b5" SourceId="1" SourceUrl="http://localhost:2093/BlackjackService.svc?xsd=xsd3" />
+    <MetadataFile FileName="BlackjackService.wsdl" MetadataType="Wsdl" ID="87b44372-398e-4e05-ac87-21ab30452383" SourceId="1" SourceUrl="http://localhost:2093/BlackjackService.svc?wsdl" />
+    <MetadataFile FileName="BlackjackService3.xsd" MetadataType="Schema" ID="1847f1d1-f93b-4091-b592-b35b648d0349" SourceId="1" SourceUrl="http://localhost:2093/BlackjackService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

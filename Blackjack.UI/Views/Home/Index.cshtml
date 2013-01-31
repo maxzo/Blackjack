@@ -1,0 +1,48 @@
+﻿@model Blackjack.UI.BlackjackServiceReference.StartingHands
+           
+<script src="@Url.Content("~/Scripts/Blackjack.js")" type="text/javascript"></script>
+
+@{
+    ViewBag.Title = "Blackjack";
+}
+
+<h1>@ViewBag.Title</h1>
+
+@Html.ActionLink("New Game", "Index")
+
+<h2>Dealer</h2>
+
+<ul id="dealer">
+    @foreach (var card in Model.DealerHand)
+    {
+        <li id="unknown">
+            ??? of ???
+        </li>
+        <li>
+            @card.Face of @card.Suit
+        </li>
+    }
+</ul>
+
+@{ int playerCount = 0; }
+
+@foreach (var playerHand in Model.PlayerHands)
+{
+    <h2>Player @(++playerCount)</h2>
+    
+    <ul id="player1">
+        @foreach (var card in playerHand)
+        {
+            <li>
+                @card.Face of @card.Suit
+            </li>
+        }
+    </ul>
+}
+
+<button id="hit" style="display: none;">Hit</button>
+<button id="stand" style="display: none;">Stand</button>
+<button id="doubledown" style="display: none;">Double down</button>
+<button id="split" style="display: none;">Split</button>
+
+<h1 id="message" style="display: none;"></h1>

@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack", "Blackjack\Blackjack.csproj", "{E3942C0C-63A5-45C2-96A5-7FFCD30F434D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.Contracts", "BlackjackContracts\Blackjack.Contracts.csproj", "{C488CE2C-B495-4EAC-A829-F7C730B0636B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.Services", "BlackjackServices\Blackjack.Services.csproj", "{CAC8F606-277F-469B-A0DF-FDA56DB2400D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blackjack.UI", "Blackjack.UI\Blackjack.UI.csproj", "{17C440F9-FC2D-440C-9DF7-10A5E3223070}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CAC8F606-277F-469B-A0DF-FDA56DB2400D} = {CAC8F606-277F-469B-A0DF-FDA56DB2400D}
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackjackContracts", "BlackjackContracts\BlackjackContracts.csproj", "{C488CE2C-B495-4EAC-A829-F7C730B0636B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlackjackServices", "BlackjackServices\BlackjackServices.csproj", "{CAC8F606-277F-469B-A0DF-FDA56DB2400D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,10 +16,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E3942C0C-63A5-45C2-96A5-7FFCD30F434D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3942C0C-63A5-45C2-96A5-7FFCD30F434D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3942C0C-63A5-45C2-96A5-7FFCD30F434D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3942C0C-63A5-45C2-96A5-7FFCD30F434D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C488CE2C-B495-4EAC-A829-F7C730B0636B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C488CE2C-B495-4EAC-A829-F7C730B0636B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C488CE2C-B495-4EAC-A829-F7C730B0636B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -28,6 +24,10 @@ Global
 		{CAC8F606-277F-469B-A0DF-FDA56DB2400D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAC8F606-277F-469B-A0DF-FDA56DB2400D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAC8F606-277F-469B-A0DF-FDA56DB2400D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17C440F9-FC2D-440C-9DF7-10A5E3223070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17C440F9-FC2D-440C-9DF7-10A5E3223070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17C440F9-FC2D-440C-9DF7-10A5E3223070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17C440F9-FC2D-440C-9DF7-10A5E3223070}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

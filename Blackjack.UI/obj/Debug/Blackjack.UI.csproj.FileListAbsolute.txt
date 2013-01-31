@@ -1,0 +1,7 @@
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\bin\Blackjack.UI.dll
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\bin\Blackjack.UI.pdb
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\bin\EntityFramework.dll
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\bin\EntityFramework.xml
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\obj\Debug\Blackjack.UI.csprojResolveAssemblyReference.cache
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\obj\Debug\Blackjack.UI.dll
+C:\Users\maxi\Documents\Visual Studio 2010\Projects\Blackjack\Blackjack.UI\obj\Debug\Blackjack.UI.pdb

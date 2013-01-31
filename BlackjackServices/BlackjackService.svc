@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="BlackjackServices.BlackjackService" CodeBehind="BlackjackService.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Blackjack.Services.BlackjackService" CodeBehind="BlackjackService.svc.cs" %>

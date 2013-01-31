@@ -1,44 +1,61 @@
-﻿using System;
+﻿using Blackjack.Contracts;
+using Blackjack.Contracts.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-using BlackjackContracts;
+using System.Web;
 
-namespace BlackjackServices
+namespace Blackjack.Services
 {
     public class BlackjackService : IBlackjackService
     {
-        private struct Shuffler
+        private static Game game;
+
+        public StartingHands StartGame(int players)
         {
-            public int Key;
-            public int Value;
-        }
+            game = new Game(players);
+            game.GiveCardToDealer();
 
-        public IEnumerable<Card> GetShuffledDeck()
-        {
-            const int DECK_SIZE = 52;
-
-            Shuffler[] deck = new Shuffler[DECK_SIZE];
-
-            Random random = new Random(DateTime.Now.Millisecond);
-
-            for (int i = 0; i < DECK_SIZE; i++)
+            for (int i = 0; i < game.Players.Count(); i++)
             {
-                deck[i].Key = i;
-                deck[i].Value = random.Next();
+                game.GiveCardToPlayer(i);
+                game.GiveCardToPlayer(i);
             }
 
-            var shuffledDeck = from c in deck
-                               orderby c.Value
-                               select new Card() { Face = (Card.FaceType)(c.Key % 13), Suit = (Card.SuitType)(c.Key / 13) };
+            var startingHand = new StartingHands(0)
+            {
+                DealerHand = game.Dealer.Hand
+            };
 
-            return shuffledDeck;
+            for (int i = 0; i < game.Players.Count(); i++)
+            {
+                ((List<List<Card>>)(startingHand.PlayerHands)).Add(game.Players.ElementAt(i).Hand.ToList());
+            }
+
+            return startingHand;
         }
-        
-        public IEnumerable<int> GetPossibleValues(IEnumerable<Card> Hand)
+
+        public Card GiveCardToPlayer(int playerIndex)
+        {
+            return game.GiveCardToPlayer(playerIndex);
+        }
+
+        public Card GiveCardToDealer()
+        {
+            return game.GiveCardToDealer();
+        }
+
+        public IEnumerable<int> GetDealerPossibleValues()
+        {
+            return this.GetPossibleValues(game.Dealer.Hand);
+        }
+
+        public IEnumerable<int> GetPlayerPossibleValues(int playerIndex)
+        {
+            return this.GetPossibleValues(game.Players.ElementAt(playerIndex).Hand);
+        }
+
+        private IEnumerable<int> GetPossibleValues(IEnumerable<Card> Hand)
         {
             IList<int> values = new List<int>();
 
@@ -46,7 +63,7 @@ namespace BlackjackServices
             {
                 switch (card.Face)
                 {
-                    case Card.FaceType.Ace:
+                    case CardFace.Ace:
                         if (values.Count == 0)
                         {
                             values.Add(11);
@@ -62,14 +79,14 @@ namespace BlackjackServices
                             }
                         }
                         break;
-                    case Card.FaceType.Two:
-                    case Card.FaceType.Three:
-                    case Card.FaceType.Four:
-                    case Card.FaceType.Five:
-                    case Card.FaceType.Six:
-                    case Card.FaceType.Seven:
-                    case Card.FaceType.Eight:
-                    case Card.FaceType.Nine:
+                    case CardFace.Two:
+                    case CardFace.Three:
+                    case CardFace.Four:
+                    case CardFace.Five:
+                    case CardFace.Six:
+                    case CardFace.Seven:
+                    case CardFace.Eight:
+                    case CardFace.Nine:
                         if (values.Count == 0)
                         {
                             values.Add((int)(card.Face) + 1);
@@ -82,10 +99,10 @@ namespace BlackjackServices
                             }
                         }
                         break;
-                    case Card.FaceType.Ten:
-                    case Card.FaceType.Jack:
-                    case Card.FaceType.Queen:
-                    case Card.FaceType.King:
+                    case CardFace.Ten:
+                    case CardFace.Jack:
+                    case CardFace.Queen:
+                    case CardFace.King:
                         if (values.Count == 0)
                         {
                             values.Add(10);
@@ -102,6 +119,48 @@ namespace BlackjackServices
             }
 
             return values.Distinct();
+        }
+
+        public bool PlayerHasBlackjack(int playerIndex)
+        {
+            return (game.Players.ElementAt(playerIndex).Hand.Count() == 2
+                && this.GetPlayerPossibleValues(playerIndex).Contains(21));
+        }
+
+        public bool DealerHasBlackjack()
+        {
+            return (game.Dealer.Hand.Count() == 2
+                && this.GetDealerPossibleValues().Contains(21));
+        }
+
+        public bool PlayerLost(int playerIndex)
+        {
+            return this.GetPlayerPossibleValues(playerIndex).All(x => x > 21);
+        }
+
+        public bool DealerStand()
+        {
+            return this.GetDealerPossibleValues().Max() > 16;
+        }
+
+        public int PlayerWins(int playerIndex)
+        {
+            int maxValueDealer = (from val in this.GetDealerPossibleValues()
+                                  where val <= 21
+                                  select val).DefaultIfEmpty(0).Max();
+
+            int maxValuePlayer = (from val in this.GetPlayerPossibleValues(playerIndex)
+                                  where val <= 21
+                                  select val).DefaultIfEmpty(0).Max();
+
+            if (maxValueDealer == maxValuePlayer)
+            {
+                return 0;
+            }
+            else
+            {
+                return (maxValueDealer > maxValuePlayer ? -1 : 1);
+            }
         }
     }
 }
